@@ -10,8 +10,10 @@ import entities.Product;
 public class App {
     public static void main(String[] args) throws Exception {
         File in = new File("src\\in.csv");
+        new File("src\\out").mkdirs();
 
-        try (Scanner sc = new Scanner(in); BufferedWriter bw = new BufferedWriter(new FileWriter("src\\summary.csv"))) {
+        try (Scanner sc = new Scanner(in);
+                BufferedWriter bw = new BufferedWriter(new FileWriter("src\\out\\summary.csv"))) {
 
             List<Product> products = new ArrayList<>();
 
@@ -30,6 +32,5 @@ public class App {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
 }
